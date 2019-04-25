@@ -26,7 +26,8 @@ if(isset($_GET["id"])){
           <td>Descrição: <textarea class="form-control" name="descricao"><?php if(isset($_GET["id"])) {echo $produto['DESCRICAO'];}?></textarea></td>
         </tr>
         <tr>
-          <td>Imagem: <input name="arquivo" class="form-control" type="file" /></td>
+          <input type="hidden" name="imagemAntiga" value="<?php if(isset($_GET["id"])) {echo $produto['IMAGEM'];}?>" />
+          <td>Imagem: <input name="arquivo" class="form-control" type="file"/></td>
         </tr>
         <tr>
           <td>
@@ -34,9 +35,11 @@ if(isset($_GET["id"])){
               <option value="0">Selecione uma categoria</option>
               <?php
                 $categorias = mysqli_query($conexao, "SELECT * FROM CATEGORIA");
+
                 while($categoria = mysqli_fetch_assoc($categorias)){
+                $selecao = $produto['ID_CATEGORIA'] == $categoria['ID'] ? "selected='selected'" : "";
               ?>
-                  <option value="<?= $categoria['ID'] ?>"><?= $categoria['NOME'] ?></option>
+                  <option value="<?= $categoria['ID'] ?>" <?=$selecao?>><?= $categoria['NOME'] ?></option>
               <?php
                 }
               ?>

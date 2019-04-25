@@ -22,9 +22,14 @@
     $destino = 'img/' . $_FILES['arquivo']['name'];
     $arquivo_tmp = $_FILES['arquivo']['tmp_name'];
 
+    if(isset($_POST["imagemAntiga"]) && $_POST["imagemAntiga"] != "") {
+      $imagemAntiga = $_POST["imagemAntiga"];
+    }
+
     move_uploaded_file($arquivo_tmp, $destino);
     if(isset($_POST["id"]) && $_POST["id"] != "") {
-      if(alteraProduto($conexao, $id, $nome, $preco, $destino, $descricao, $categoria)){
+      $destinoAux = $destino == 'img/' ? $imagemAntiga : $destino;
+      if(alteraProduto($conexao, $id, $nome, $preco, $destinoAux, $descricao, $categoria)){
       ?>
         <p class="alert-success">
         </br></br></br></br>

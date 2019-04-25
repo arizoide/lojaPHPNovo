@@ -3,7 +3,8 @@
 
 <?php
   $produtos = mysqli_query($conexao, "SELECT p.*, c.NOME AS NOME_CATEGORIA FROM PRODUTO AS p
-                                      join CATEGORIA AS c on p.id_categoria = c.id");
+                                      left join CATEGORIA AS c on p.id_categoria = c.id
+                                      order by p.NOME");
 
   if(isset($_GET['removeu'])){
     $removeu = $_GET['removeu'];
@@ -34,7 +35,13 @@
         <td><?= substr($produto["DESCRICAO"], 0, 15)?> ...</td>
         <td><img src="<?= $produto["IMAGEM"]?>" alt="Smiley face" height="42" width="42"/></td>
         <td>
-          <?= $produto["NOME_CATEGORIA"] ?>
+          <?php
+          if(isset($produto["NOME_CATEGORIA"])){
+            echo $produto["NOME_CATEGORIA"];
+          } else {
+            echo "Sem Categoria";
+          }
+          ?>
         </td>
         <td>
           <form action="remover_produto.php" method="post">
