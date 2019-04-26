@@ -2,9 +2,17 @@
 <?php include("conecta_banco.php"); ?>
 
 <?php
-  $produtos = mysqli_query($conexao, "SELECT p.*, c.NOME AS NOME_CATEGORIA FROM PRODUTO AS p
+  if(isset($_GET["pesquisa"]) && $_GET["pesquisa"] != ""){
+    $pesquisa = $_GET["pesquisa"];
+    $produtos = mysqli_query($conexao, "SELECT p.*, c.NOME AS NOME_CATEGORIA FROM PRODUTO AS p
+                                      left join CATEGORIA AS c on p.id_categoria = c.id
+                                      WHERE p.NOME LIKE '%".$pesquisa."%'
+                                      order by p.NOME");
+  } else {
+    $produtos = mysqli_query($conexao, "SELECT p.*, c.NOME AS NOME_CATEGORIA FROM PRODUTO AS p
                                       left join CATEGORIA AS c on p.id_categoria = c.id
                                       order by p.NOME");
+  }
 
   if(isset($_GET['removeu'])){
     $removeu = $_GET['removeu'];
@@ -24,6 +32,14 @@
     }
   }
 ?>
+
+<form action="listar_produtos.php" method="GET">
+  </br></br>
+  <input class="form-control" type="search" name="pesquisa" placeholder="Digite sua pesquisa aqui:"/>
+  </br>
+  <input type="submit" class="btn btn-primary" value="buscar" />
+</form>
+
 <table class="table table-striped table-bordered">
 <?php
 

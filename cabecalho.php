@@ -14,6 +14,7 @@
             <div>
                 <ul class="nav navbar-nav">
                     <li><a href="produto_formulario.php">Adiciona Produto</a></li>
+                    <li><a href="usuario_formulario.php">Adiciona Usuário</a></li>
                     <li><a href="listar_produtos.php">Produtos</a></li>
                     <li><a href="categoria_formulario.php">Categorias</a></li>
                     <li><a href="sobre.php">Sobre</a></li>
