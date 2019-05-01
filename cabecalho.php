@@ -6,6 +6,9 @@
     <link href="css/loja.css" rel="stylesheet" />
 </head>
 <body>
+
+</head>
+<body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -13,11 +16,24 @@
             </div>
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="produto_formulario.php">Adiciona Produto</a></li>
-                    <li><a href="usuario_formulario.php">Adiciona Usuário</a></li>
-                    <li><a href="listar_produtos.php">Produtos</a></li>
-                    <li><a href="categoria_formulario.php">Categorias</a></li>
-                    <li><a href="sobre.php">Sobre</a></li>
+                  <div class="dropdown">
+                    <button class="dropbtn">Cadastrar</button>
+                    <div class="dropdown-content">
+                      <a href="produto_formulario.php">Adiciona Produto</a>
+                      <a href="usuario_formulario.php">Adiciona Usuário</a>
+                      <a href="categoria_formulario.php">Adiciona Categoria</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <button class="dropbtn">Listagem</button>
+                    <div class="dropdown-content">
+                      <a href="listar_produtos.php">Produtos</a>
+                      <a href="listar_categoria.php">Categorias</a>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <a href="sobre.php" class="dropa">Sobre</a>
+                  </div>
                 </ul>
             </div>
         </div>
