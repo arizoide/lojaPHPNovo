@@ -14,6 +14,10 @@
             <div class="navbar-header">
                 <a href="index.php" class="navbar-brand">Minha Loja</a>
             </div>
+            <?php
+            session_start();
+             if(isset($_SESSION['ID'])){
+            ?>
             <div>
                 <ul class="nav navbar-nav">
                   <div class="dropdown">
@@ -34,8 +38,22 @@
                   <div class="dropdown">
                     <a href="sobre.php" class="dropa">Sobre</a>
                   </div>
+                  <div class="dropdown">
+                    <a href="logout.php" class="dropa">Sair</a>
+                  </div>
                 </ul>
             </div>
+            <?php
+          } else {
+            ?>
+            <div>
+              <div class="navbar-header">
+                  <a href="login_formulario.php" class="navbar-brand login">Login</a>
+              </div>
+            </div>
+            <?php
+          }
+             ?>
         </div>
     </div>
 

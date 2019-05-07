@@ -20,6 +20,10 @@ border: none;
   border: none;
 }
 
+.login {
+  float: left;
+}
+
 .dropdown {
 position: relative;
 display: inline-block;
