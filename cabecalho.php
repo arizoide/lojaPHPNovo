@@ -20,6 +20,9 @@
             ?>
             <div>
                 <ul class="nav navbar-nav">
+                  <?php
+                    if(isset($_SESSION['ID']) && $_SESSION['PERFIL'] == "ADMIN"){
+                   ?>
                   <div class="dropdown">
                     <button class="dropbtn">Cadastrar</button>
                     <div class="dropdown-content">
@@ -28,6 +31,7 @@
                       <a href="categoria_formulario.php">Adiciona Categoria</a>
                     </div>
                   </div>
+                <?php } ?>
                   <div class="dropdown">
                     <button class="dropbtn">Listagem</button>
                     <div class="dropdown-content">
@@ -39,7 +43,13 @@
                     <a href="sobre.php" class="dropa">Sobre</a>
                   </div>
                   <div class="dropdown">
+                    <a href="contato_formulario.php" class="dropa">Contato</a>
+                  </div>
+                  <div class="dropdown">
                     <a href="logout.php" class="dropa">Sair</a>
+                  </div>
+                  <div class="dropdown">
+                    <p style="text-color: white;">Seja bem vindo, <?= $_SESSION['USERNAME'] ?> </p>
                   </div>
                 </ul>
             </div>

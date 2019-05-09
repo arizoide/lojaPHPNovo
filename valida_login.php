@@ -13,6 +13,7 @@
       session_start();
       $_SESSION['USERNAME'] = $usuario['NOME'];
       $_SESSION['ID'] = $usuario['ID'];
+      $_SESSION['PERFIL'] = $usuario['PERFIL'];
       header("Location: index.php");
     } else {
       header("Location: login_formulario.php?erro=true");

@@ -1,4 +1,7 @@
 <?php include("cabecalho.php"); ?>
+<?php
+if(isset($_SESSION['ID'])){
+  ?>
     <form action="adiciona_categoria.php" method=POST>
       <table class="table">
         <tr>
@@ -12,4 +15,13 @@
         </tr>
       </table>
     </form>
+    <?php
+      } else {
+    ?>
+      <p class="alert-danger">
+        Por favor, faça login para prosseguir.
+      </p>
+    <?php
+    }
+    ?>
 <?php include("rodape.php"); ?>

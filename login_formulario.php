@@ -6,7 +6,7 @@
         <p class="alert-danger">
           Login ou senha inválidos.
         </p>
-      <?php   
+      <?php
   }
   ?>
   <table class="table">
@@ -17,7 +17,10 @@
       <td>Senha: <input class="form-control" type="password" name="senha"/></td>
     </tr>
     <tr>
-      <td><input type="submit" class="btn btn-primary" value="Entrar" /></td>
+      <td>
+        <input type="submit" class="btn btn-primary" value="Entrar" />
+        <a href="usuario_formulario.php" class="btn btn-success">Cadastrar</a>
+      </td>
     </tr>
   </table>
 </form>

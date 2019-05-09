@@ -1,17 +1,18 @@
 <?php include("cabecalho.php"); ?>
 <?php include("conecta_banco.php"); ?>
     <?php
-    function insereUsuario($conexao, $nome, $email, $senha){
-      $query = "INSERT INTO USUARIO (NOME, EMAIL, SENHA) VALUES ('{$nome}', '{$email}', '{$senha}')";
+    function insereUsuario($conexao, $nome, $email, $senha, $perfil){
+      $query = "INSERT INTO USUARIO (NOME, EMAIL, SENHA, PERFIL) VALUES ('{$nome}', '{$email}', '{$senha}', '{$perfil}')";
       return mysqli_query($conexao, $query);
     }
 
     $nome = $_POST["nome"];
     $email = $_POST["email"];
+    $perfil = $_POST["perfil"];
     $senha = md5($_POST["senha"]);
 
     if(isset($senha) && $senha != ""){
-      if(insereUsuario($conexao, $nome, $email, $senha)){
+      if(insereUsuario($conexao, $nome, $email, $senha, $perfil)){        
       ?>
         <p class="alert-success">
         </br></br></br></br>

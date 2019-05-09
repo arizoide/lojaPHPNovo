@@ -11,6 +11,23 @@
     <tr>
       <td>Senha:  <input type="password" class="form-control" name="senha"/></td>
     </tr>
+    <?php
+      if(isset($_SESSION['PERFIL']) && $_SESSION['PERFIL'] == "ADMIN"){
+      ?>
+    <tr>
+      <td>
+        <select class="form-control" name="perfil">
+          <option value="CLIENTE">SELECIONE UM PERFIL</option>
+          <option value="ADMIN">ADMIN</option>
+          <option value="CLIENTE">CLIENTE</option>
+        </select>
+      </td>
+    </tr>
+    <?php
+  } else {
+    echo "<input type='hidden' name='perfil' value='CLIENTE' />";
+  }
+     ?>
     <tr>
       <td><input type="submit" value="Cadastrar" class="btn btn-primary"/></td>
     </tr>
